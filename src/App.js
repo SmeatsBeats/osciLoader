@@ -4,22 +4,23 @@ import './App.css';
 function AudioSynth() {
   const [audioContext] = useState(new (window.AudioContext || window.webkitAudioContext)());
 
-  useEffect(() => {
-    // Call getBatteryPercentage when the component mounts
-    getBatteryPercentage((level) => {
-      // Play tone with frequency based on battery level
-      playTone(level); 
-    });
-  }, [playTone]); // Include playTone in the dependency array
-
-  const playTone = (frequency = 440) => {
+  // Memoize playTone function to prevent it from changing on every render
+  const playTone = useCallback((frequency = 440) => {
     const oscillator = audioContext.createOscillator();
     oscillator.type = 'sine';
     oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
     oscillator.connect(audioContext.destination);
     oscillator.start();
     oscillator.stop(audioContext.currentTime + 1); // Stop after 1 second
-  };
+  }, [audioContext]);
+
+  useEffect(() => {
+    // Call getBatteryPercentage when the component mounts
+    getBatteryPercentage((level) => {
+      // Play tone with frequency based on battery level
+      playTone(level); 
+    });
+  }, [playTone]); // playTone is now stable and won't cause useEffect to re-run unnecessarily
 
   return (
     <div>
