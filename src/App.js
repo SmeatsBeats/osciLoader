@@ -3,9 +3,9 @@ import './App.css';
 
 function AudioSynth() {
 
-return (
-  <h1>Audio Synth</h1>  
-);
+  return (
+    <h1>Audio Synth</h1>  
+  );
 
 //   const [audioContext] = useState(new (window.AudioContext || window.webkitAudioContext)());
 
