@@ -1,49 +1,45 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useBattery } from 'react-use';
 import './App.css';
 
 function AudioSynth() {
 
   return (
-    <h1>Audio Synth</h1>  
+    <div>
+      <h1>Audio Synth</h1>
+      <BatteryPercentage />
+    </div>
+    
+
   );
-
-//   const [audioContext] = useState(new (window.AudioContext || window.webkitAudioContext)());
-
-//   // Memoize playTone function to prevent it from changing on every render
-//   const playTone = useCallback((frequency = 440) => {
-//     const oscillator = audioContext.createOscillator();
-//     oscillator.type = 'sine';
-//     oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
-//     oscillator.connect(audioContext.destination);
-//     oscillator.start();
-//     oscillator.stop(audioContext.currentTime + 1); // Stop after 1 second
-//   }, [audioContext]);
-
-//   useEffect(() => {
-//     // Call getBatteryPercentage when the component mounts
-//     getBatteryPercentage((level) => {
-//       // Play tone with frequency based on battery level
-//       playTone(level); 
-//     });
-//   }, [playTone]); // playTone is now stable and won't cause useEffect to re-run unnecessarily
-
-//   return (
-//     <div>
-//       <button onClick={() => playTone()}>Play Tone</button>
-//     </div>
-//   );
-// }
-
-// function getBatteryPercentage(callback) {
-//   navigator.getBattery().then(function(battery) {
-//     // Initial call
-//     callback(battery.level * 100);
-
-//     // Add event listener for level change
-//     battery.addEventListener('levelchange', () => {
-//       callback(battery.level * 100); // Convert to percentage
-//     });
-//   }).catch(error => console.error("Battery status is not supported.", error));
 }
+
+function BatteryPercentage() {
+  // get the battery percentage of the device
+  const battery = useBattery();
+
+  // destructuring the battery object
+  const { isSupported, charging, level } = battery;
+
+  // check if the battery is supported
+  
+  if (!isSupported) {
+    return <div>Battery information is not supported</div>;
+  }
+  else {
+    return (
+      <div>
+        <h2>Battery Information</h2>
+        <p>Charging: {charging ? 'Yes' : 'No'}</p>
+        <p>Level: {level * 100}%</p>
+      </div>
+    );
+  }
+
+
+
+}
+
+
 
 export default AudioSynth;
