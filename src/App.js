@@ -10,7 +10,7 @@ function AudioSynth() {
       // Play tone with frequency based on battery level
       playTone(level); 
     });
-  }, []);
+  }, [playTone]); // Include playTone in the dependency array
 
   const playTone = (frequency = 440) => {
     const oscillator = audioContext.createOscillator();
