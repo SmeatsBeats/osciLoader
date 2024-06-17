@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/%7BosciLoader%7D/static/css/main.f855e6bc.css",
-    "main.js": "/%7BosciLoader%7D/static/js/main.7c7fbf08.js",
-    "static/js/453.ed3810f9.chunk.js": "/%7BosciLoader%7D/static/js/453.ed3810f9.chunk.js",
-    "index.html": "/%7BosciLoader%7D/index.html",
-    "main.f855e6bc.css.map": "/%7BosciLoader%7D/static/css/main.f855e6bc.css.map",
-    "main.7c7fbf08.js.map": "/%7BosciLoader%7D/static/js/main.7c7fbf08.js.map",
-    "453.ed3810f9.chunk.js.map": "/%7BosciLoader%7D/static/js/453.ed3810f9.chunk.js.map"
+    "main.css": "/osciLoader/static/css/main.f855e6bc.css",
+    "main.js": "/osciLoader/static/js/main.62be78a9.js",
+    "static/js/453.ed3810f9.chunk.js": "/osciLoader/static/js/453.ed3810f9.chunk.js",
+    "index.html": "/osciLoader/index.html",
+    "main.f855e6bc.css.map": "/osciLoader/static/css/main.f855e6bc.css.map",
+    "main.62be78a9.js.map": "/osciLoader/static/js/main.62be78a9.js.map",
+    "453.ed3810f9.chunk.js.map": "/osciLoader/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.7c7fbf08.js"
+    "static/js/main.62be78a9.js"
   ]
 }
